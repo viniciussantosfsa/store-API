@@ -1,4 +1,6 @@
-async function insertClient() {}
+async function insertClient(client) {
+  
+}
 
 export default {
   insertClient,
