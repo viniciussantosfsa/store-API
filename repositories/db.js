@@ -1,6 +1,6 @@
 import pg from "pg";
-import dotenv from "dotenv";
-dotenv.config();
+// ! import dotenv from "dotenv";
+// ! dotenv.config();
 
 async function connect() {
   if (global.connection) {
@@ -8,7 +8,7 @@ async function connect() {
   }
 
   const pool = new pg.Pool({
-    connectionString: PROCESS.ENV.URL,
+    connectionString: "postgres://rdvdhoee:xo8ZiXj8VJUd-ycBsrup0peIz6P8yVBL@babar.db.elephantsql.com/rdvdhoee",
   });
 
   global.connection = pool;
@@ -16,6 +16,6 @@ async function connect() {
   return pool.connect();
 }
 
-export default {
-  connect,
+export {
+  connect
 };

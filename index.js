@@ -1,12 +1,12 @@
 import express from "express";
 import cors from "cors";
 import winston from "winston";
-//import expressBasicAuth from 'express-basic-auth';
+// ? import expressBasicAuth from 'express-basic-auth';
 import clientsRoute from "./routes/client.route.js";
 import productsRoute from "./routes/prooduct.route.js";
 import salesRoute from "./routes/sale.route.js";
 import suppliersRoute from "./routes/supplier.route.js";
-//
+
 const app = express();
 app.use(express.json());
 
