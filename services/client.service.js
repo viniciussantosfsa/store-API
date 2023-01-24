@@ -17,14 +17,13 @@ async function deleteClient(id) {
 }
 
 async function updateClient(client) {
-  return clientRepository.updateClient(client)
+  return clientRepository.updateClient(client);
 }
-
 
 export default {
   createClient,
   getClients,
   getClient,
   deleteClient,
-  updateClient
+  updateClient,
 };

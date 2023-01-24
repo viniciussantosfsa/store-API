@@ -3,9 +3,9 @@ import cors from "cors";
 import winston from "winston";
 // ? import expressBasicAuth from 'express-basic-auth';
 import clientsRoute from "./routes/client.route.js";
+import suppliersRoute from "./routes/supplier.route.js";
 import productsRoute from "./routes/prooduct.route.js";
 import salesRoute from "./routes/sale.route.js";
-import suppliersRoute from "./routes/supplier.route.js";
 
 const app = express();
 app.use(express.json());
@@ -28,9 +28,9 @@ const port = 4422;
 
 app.use(cors());
 app.use("/client", clientsRoute);
+app.use("/supplier", suppliersRoute);
 app.use("/product", productsRoute);
 app.use("/sale", salesRoute);
-app.use("/supplier", suppliersRoute);
 
 app.use((err, req, res, next) => {
   logger.error(`${req.method} ${req.baseUrl} - ${err.message}`);
