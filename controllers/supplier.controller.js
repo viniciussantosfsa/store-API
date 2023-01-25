@@ -69,7 +69,7 @@ async function updateSupplier(req, res, next) {
       );
     }
 
-    client = await supplierService.updateSupplier(supplier);
+    supplier = await supplierService.updateSupplier(supplier);
 
     res.send(supplier);
 
