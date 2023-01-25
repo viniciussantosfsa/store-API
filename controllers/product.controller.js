@@ -9,9 +9,9 @@ async function createProduct(req, res, next) {
       !product.description ||
       !product.value ||
       !product.stock ||
-      !product.suppliers_id
+      !product.supplier_id
     ) {
-      throw new Error("name, description, value, stock, suppliers_id is required!");
+      throw new Error("name, description, value, stock, supplier_id is required!");
     }
 
     product = await productService.createProduct(product);
@@ -61,11 +61,11 @@ async function updateProduct(req, res, next) {
       !product.description ||
       !product.value ||
       !product.stock ||
-      !product.suppliers_id ||
+      !product.supplier_id ||
       !product.products_id
     ) {
       throw new Error(
-        "products_id, name, description, value, stock, suppliers_id is required!"
+        "products_id, name, description, value, stock, supplier_id is required!"
       );
     }
 
