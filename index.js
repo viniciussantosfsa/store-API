@@ -4,7 +4,7 @@ import winston from "winston";
 // ? import expressBasicAuth from 'express-basic-auth';
 import clientsRoute from "./routes/client.route.js";
 import suppliersRoute from "./routes/supplier.route.js";
-import productsRoute from "./routes/prooduct.route.js";
+import productsRoute from "./routes/product.route.js";
 import salesRoute from "./routes/sale.route.js";
 
 const app = express();
