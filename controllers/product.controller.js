@@ -16,7 +16,7 @@ async function createProduct(req, res, next) {
 
     product = await productService.createProduct(product);
 
-    res.send();
+    res.send(product);
 
     logger.info(`POST /product - ${JSON.stringify(product)}`);
   } catch (err) {
