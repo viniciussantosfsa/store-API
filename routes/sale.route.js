@@ -1,5 +1,12 @@
-import express from 'express';
+import express from "express";
+import saleController from "../controllers/sale.controller.js";
 
 const router = express.Router();
 
-export default router
+router.post("/", saleController.createSale);
+router.get("/", saleController.getSales);
+router.get("/:id", saleController.getSale);
+router.delete("/:id", saleController.deleteSale);
+router.put("/", saleController.updateSale);
+
+export default router;
