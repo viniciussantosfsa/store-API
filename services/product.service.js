@@ -1,9 +1,13 @@
 import productRepository from "../repositories/product.repository.js";
 import supplierRepository from "../repositories/supplier.repository.js";
 
+function error(e) {
+  throw new Error(`${e} informado não existe.`);
+}
+
 async function createProduct(product) {
   if (await supplierRepository.getSupplier(product.suppliers_id)) {
-    throw new Error("O supplier_id informando não existe.");
+    error("product_id");
   }
   return await productRepository.insertProduct(product);
 }
@@ -22,7 +26,7 @@ async function deleteProduct(id) {
 
 async function updateProduct(product) {
   if (await supplierRepository.getSupplier(product.suppliers_id)) {
-    throw new Error("O supplier_id informando não existe.");
+    error("product_id");
   }
   return productRepository.updateProduct(product);
 }
