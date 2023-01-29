@@ -6,12 +6,7 @@ async function insertSale(sale) {
     const sql =
       "INSERT INTO sales (value, date, client_id, product_id) VALUES ($1, $2, $3, $4) RETURNING *";
 
-    const values = [
-      sale.value,
-      sale.date,
-      sale.client_id,
-      sale.product_id
-    ];
+    const values = [sale.value, sale.date, sale.client_id, sale.product_id];
 
     const res = await await conn.query(sql, values);
 
@@ -69,14 +64,8 @@ async function updateSale(sale) {
 
   try {
     const sql =
-      "UPDATE sales SET value = $1, date = $2, client_id = $3, product_id = $4 WHERE sales_id = $5 RETURNING *";
-    const values = [
-      sale.value,
-      sale.date,
-      sale.client_id,
-      sale.product_id,
-      sale.sales_id,
-    ];
+      "UPDATE sales SET value = $1, date = $2, client_id = $3, WHERE sales_id = $5 RETURNING *";
+    const values = [sale.value, sale.date, sale.client_id, sale.sales_id];
 
     const res = await conn.query(sql, values);
     return res.rows[0];
