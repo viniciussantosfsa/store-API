@@ -47,7 +47,7 @@ async function updateSale(sale) {
 }
 
 function error(e) {
-  throw new Error(`O ${e} informado não existe.`);
+  throw new Error(`The ${e} reported does not exist.`);
 }
 
 export default {
