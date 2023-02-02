@@ -1,10 +1,6 @@
 import productRepository from "../repositories/product.repository.js";
 import supplierRepository from "../repositories/supplier.repository.js";
 
-function error(e) {
-  throw new Error(`${e} informado não existe.`);
-}
-
 async function createProduct(product) {
   if (await supplierRepository.getSupplier(product.suppliers_id)) {
     error("product_id");
@@ -29,6 +25,10 @@ async function updateProduct(product) {
     error("product_id");
   }
   return productRepository.updateProduct(product);
+}
+
+function error(e) {
+  throw new Error(`${e} informado não existe.`);
 }
 
 export default {
