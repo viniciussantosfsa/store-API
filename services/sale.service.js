@@ -15,10 +15,13 @@ async function createSale(sale) {
   // * the function is not decrementing the stock value
 
   if (product.stock > 0) {
+    
     product.stock--;
     await productRepository.updateProduct(product);
-    await saleRepository.insertSale(sale);
+
+    await saleRepository.insertSale(sale);    
     return sale;
+
   } else {
     throw new Error("The specified product is out of stock");
   }
