@@ -5,19 +5,19 @@ import productRepository from "../repositories/product.repository.js";
 async function createSale(sale) {
   if (!(await clientRepository.getClient(sale.client_id))) {
     error("Client_id");
-  };
+  }
   const product = await productRepository.getProduct(sale.product_id);
 
   if (!product) {
     error("Product_id");
-  };
+  }
 
   // * the function is not decrementing the stock value
 
   if (product.stock > 0) {
-    await saleRepository.insertSale(sale);
     product.stock--;
     await productRepository.updateProduct(product);
+    await saleRepository.insertSale(sale);
     return sale;
   } else {
     throw new Error("The specified product is out of stock");
